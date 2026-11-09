@@ -1,10 +1,24 @@
 import type { Metadata } from "next";
+import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "DAPi Chapters | Delta Alpha Pi International Honor Society",
-  description: "Find Delta Alpha Pi chapters by state or learn how to establish a chapter at your college or university.",
+  title: "Delta Alpha Pi International Honor Society",
+  description: "Recognizing academic achievement, leadership, advocacy, and pride among college students with disabilities.",
+  icons: {
+    icon: "dapi-logo.png",
+    shortcut: "dapi-logo.png",
+  },
 };
 
-export default function ChaptersLayout({ children }: Readonly<{ children: React.ReactNode }>) {
-  return children;
+export default function RootLayout({
+  children,
+}: Readonly<{
+  children: React.ReactNode;
+}>) {
+  return (
+    <html lang="en" suppressHydrationWarning>
+      <head><base href="/delta-alpha-pi-website/" /></head>
+      <body className="antialiased">{children}</body>
+    </html>
+  );
 }
